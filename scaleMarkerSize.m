@@ -1,0 +1,1 @@
+function [dpx,dpy] = drawWindows(imageOne,imageTwo,windowSize,varOverlap)

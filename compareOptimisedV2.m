@@ -1,8 +1,9 @@
-function [dpx,dpy] = compareOptimised(imageOne,imageTwo,windowSize,varOverlap)
+function [dpx,dpy] = compareOptimisedV2(imageOne,imageTwo,windowSize,varOverlap)
 
 %%initialise
 % xGridVO=zeros
 % yGridVO=zeros
+windowSize=2*floor(windowSize/2);
 
 %%convert RGB to grayscale
 imageOne_grayscale=rgb2gray(imageOne);
@@ -46,20 +47,24 @@ xGridVO=xGrid+xPadVO*ones(p,q);
 yGridVO=yGrid+yPadVO*ones(p,q);
 
 %%show grids
-figure()
-imshow(imageOne_grayscale_save)
-hold on
-plot(xGrid,yGrid,'square','MarkerSize',100)
+% figure()
+% imshow(imageOne_grayscale_save)
+% hold on
+% plot(xGrid,yGrid,'square','MarkerSize',100)
+
+picture = drawWindows(imageOne_grayscale_save,xGrid,yGrid,windowSizeVO);
 
 %%show grids
-figure()
-imshow(imageOne_grayscale)
-hold on
-plot(xGridVO,yGridVO,'square','MarkerSize',100)
+% figure()
+% imshow(imageOne_grayscale)
+% hold on
+% plot(xGridVO,yGridVO,'square','MarkerSize',100)
+
+picture = drawWindows(imageOne_grayscale,xGridVO,yGridVO,windowSizeVO);
 
 %%show grids
-figure()
-imshow(imageTwo_grayscale)
+% figure()
+% imshow(imageTwo_grayscale)
 
 [dpx,dpy] = compareImages(imageOne_grayscale,imageTwo_grayscale,windowSizeVO,xGridVO,yGridVO);
 
@@ -68,10 +73,13 @@ dpx=dpx+xPadVO*ones(p,q);
 dpy=dpy+yPadVO*ones(p,q);
 
 %%show grids
-figure()
-imshow(imageTwo_grayscale_save)
-hold on
-plot(xGrid+dpx,yGrid+dpy,'square','MarkerSize',100)
+% figure()
+% imshow(imageTwo_grayscale_save)
+% hold on
+% plot(xGrid+dpx,yGrid+dpy,'square','MarkerSize',100)
+
+picture = drawWindows(imageTwo_grayscale_save,xGrid+dpx,yGrid+dpy,windowSizeVO);
+
 
 
 end

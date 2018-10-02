@@ -3,10 +3,15 @@
 imageOne=imread('left_cone.tiff');
 imageTwo=imread('right_cone.tiff');
 
-windowSize=200;
+windowSize=120;
+varOverlap=0.1;
 
 %%call function
-[dpx,dpy] = compareColourImages(imageOne,imageTwo,windowSize);
+[dpx,dpy] = compareOptimisedV2(imageOne,imageTwo,windowSize,varOverlap);
 
-%%something to make it continue if inputs are flat
+%%flat problems
+%%maybe delete edge grids - could select a subset
+
+
+
 

@@ -3,9 +3,9 @@
 imageOne=imread('left_tuscany.tiff');
 imageTwo=imread('right_tuscany.tiff');
 
-windowSize=150;
-varOverlap=0.05;
+windowSize=250;
+varOverlap=0.0;
 
 %%call function
-[dpx,dpy] = compareOptimisedV2(imageOne,imageTwo,windowSize,varOverlap);
+[dpx,dpy] = compareOptimised(imageOne,imageTwo,windowSize,varOverlap);
 

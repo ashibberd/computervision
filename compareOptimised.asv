@@ -49,13 +49,13 @@ yGridVO=yGrid+yPadVO*ones(p,q);
 figure()
 imshow(imageOne_grayscale_save)
 hold on
-plot(xGrid,yGrid,'square','MarkerSize',100)
+plot(xGrid,yGrid,'square','MarkerSize',windowSize)
 
 %%show grids
 figure()
 imshow(imageOne_grayscale)
 hold on
-plot(xGridVO,yGridVO,'square','MarkerSize',100)
+plot(xGridVO,yGridVO,'square','MarkerSize',windowSize)
 
 %%show grids
 figure()
@@ -71,9 +71,7 @@ dpy=dpy+yPadVO*ones(p,q);
 figure()
 imshow(imageTwo_grayscale_save)
 hold on
-plot(xGrid+dpx,yGrid+dpy,'square','MarkerSize',100)
-
-
+plot(xGrid+dpx,yGrid+dpy,'square','MarkerSize',20)
 end
 
 
